@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { signIn, signUp } from "./config/firebase";
 import Router from "./config/router";
+import { Provider } from "react-redux";
+import { store } from "./redux";
 
-const App = () => {
+export default function App() {
   // useEffect(() => {
   //   signUp("Adem", "adem@adem.com", "12345.Aa").then(() => {
   //     console.log("Done").catch((err) => {
@@ -20,10 +22,8 @@ const App = () => {
   // }, []);
 
   return (
-    <div>
+    <Provider store={store}>
       <Router />
-    </div>
+    </Provider>
   );
-};
-
-export default App;
+}
